@@ -6,26 +6,12 @@ const https = require('https');
 const http = require('http');
 const Koa = require('koa');
 const serve = require('koa-static');
-// const websockify = require('koa-websocket');
 const Router = require('koa-router');
 const cors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
-const wss = require('ws').Server;
 
-// const ws = new wss({ port: 1338 });
 const app = new Koa();
 const api = new Router();
-
-// ws.on('connection', w => {
-function saveFile(content) {
-  return new Promise(resolve => {
-    const objData = content.data;
-    const filename = content.hash;
-    fs.writeFile(path.join('obj', `${filename}.obj`), objData, err => {
-      resolve();
-    });
-  });
-}
 
 api.post('/', async (ctx, next) => {
   const content = ctx.request.body;
