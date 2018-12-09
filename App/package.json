@@ -1,0 +1,49 @@
+{
+  "name": "paper.ship.messages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sketch.js",
+  "scripts": {
+    "client": "npx parcel src/client/html/index.html",
+    "server": "node src/server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^1.0.0-beta.11",
+    "@capacitor/cli": "^1.0.0-beta.11",
+    "@capacitor/core": "^1.0.0-beta.11",
+    "@koa/cors": "^2.2.2",
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.3",
+    "babel-register": "^6.26.0",
+    "browserify": "^16.2.3",
+    "canvas-sketch": "0.0.27",
+    "capacitor": "^0.5.5",
+    "chalk": "^2.4.1",
+    "cordova-plugin-file": "^6.0.1",
+    "cordova-plugin-http": "^1.2.0",
+    "http-server": "^0.11.1",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-websocket": "^5.0.1",
+    "noisejs": "^2.1.0",
+    "preact": "^8.3.1",
+    "random": "^2.0.12",
+    "stats": "^1.0.0",
+    "watchify": "^3.11.0",
+    "ws": "^6.1.2"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "glslify": "^7.0.0",
+    "parcel": "^1.10.3",
+    "sass": "^1.15.1",
+    "seedrandom": "^2.4.4",
+    "three": "^0.98.0",
+    "three-orbitcontrols": "^2.96.3"
+  }
+}

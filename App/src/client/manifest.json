@@ -1,0 +1,9 @@
+{
+  "name": "Origami.Boats",
+  "short_name": "Origami",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [],
+  "background_color": "#000",
+  "theme_color": "#000"
+}

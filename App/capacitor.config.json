@@ -1,0 +1,6 @@
+{
+  "appId": "de.pendeloque.origami.boats",
+  "appName": "Origami.Boats",
+  "bundledWebRuntime": true,
+  "webDir": "dist"
+}
