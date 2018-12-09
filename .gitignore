@@ -8,3 +8,7 @@ dist/
 # Android
 .gradle/
 App/android/
+
+# Touchdesigner
+Touchdesigner/Backup/
+Origami.*.toe
