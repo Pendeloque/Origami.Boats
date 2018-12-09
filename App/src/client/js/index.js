@@ -1,17 +1,17 @@
-import '@capacitor/core';
-global.THREE = require('three');
-import noisejs from 'noisejs';
-import _ from 'lodash';
-import random from 'random';
-import seedrandom from 'seedrandom';
-import 'three-orbitcontrols';
-import OBJExporter from './OBJExporter.js';
-import axios from 'axios';
-import iconPath from '../png/send.png';
+import "@capacitor/core";
+global.THREE = require("three");
+import noisejs from "noisejs";
+import _ from "lodash";
+import random from "random";
+import seedrandom from "seedrandom";
+import "three-orbitcontrols";
+import OBJExporter from "./OBJExporter.js";
+import axios from "axios";
+import iconPath from "../png/send.png";
 
-const ENDPOINT_URL = 'http://10.0.11.200:1337';
+const ENDPOINT_URL = "http://10.0.11.200:1337";
 var settings = {
-  color: 'rgb(255, 255, 255)',
+  color: "rgb(255, 255, 255)",
   drivers: {
     driverA: 2.0, // -> inner pyramid length
     driverB: 0.6, // -> inner pyramid width
@@ -24,7 +24,7 @@ var settings = {
 };
 
 const settingsDefault = {
-  color: 'rgb(255, 255, 255)',
+  color: "rgb(255, 255, 255)",
   drivers: {
     driverA: 2.0, // -> inner pyramid length
     driverB: 0.6, // -> inner pyramid width
@@ -37,7 +37,6 @@ const settingsDefault = {
 };
 const noise = new noisejs.Noise();
 
-
 var currentTime = 0;
 var globalTime = 0;
 var container;
@@ -48,7 +47,7 @@ var boatVertices;
 var waterMesh, waterGeometry;
 var mouseX = 0;
 var mouseY = 0;
-var hash = '';
+var hash = "";
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 var button, message;
@@ -130,7 +129,7 @@ function updateBoat() {
   ];
   boatGeometry.setIndex(indices);
   boatGeometry.addAttribute(
-    'position',
+    "position",
     new THREE.Float32BufferAttribute(boatVertices, 3)
   );
   boatGeometry.computeVertexNormals();
@@ -242,7 +241,7 @@ function buildBoat() {
   boatGeometry = new THREE.BufferGeometry();
   boatGeometry.setIndex(indices);
   boatGeometry.addAttribute(
-    'position',
+    "position",
     new THREE.Float32BufferAttribute(boatVertices, 3)
   );
   boatGeometry.computeVertexNormals();
@@ -257,7 +256,7 @@ function buildBoat() {
 }
 
 function init() {
-  container = document.getElementById('container');
+  container = document.getElementById("container");
   camera = new THREE.PerspectiveCamera(
     20,
     window.innerWidth / window.innerHeight,
@@ -302,7 +301,7 @@ function init() {
   function onContextMenu(event) {
     event.preventDefault();
   }
-  window.addEventListener('contextmenu', onContextMenu, false);
+  window.addEventListener("contextmenu", onContextMenu, false);
 
   renderer = new THREE.WebGLRenderer({ antialias: false });
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -310,8 +309,8 @@ function init() {
   container.appendChild(renderer.domElement);
 
   // Event listeners
-  document.addEventListener('mousemove', onDocumentMouseMove, false);
-  window.addEventListener('resize', onWindowResize, false);
+  document.addEventListener("mousemove", onDocumentMouseMove, false);
+  window.addEventListener("resize", onWindowResize, false);
 }
 
 function onWindowResize() {
@@ -363,10 +362,10 @@ function updateSettings(ev) {
   // Message hash
   message = ev.target.value;
   if (message.length > 3) {
-    button.removeAttribute('disabled');
+    button.removeAttribute("disabled");
   }
   if (message.length <= 3) {
-    button.setAttribute('disabled', true);
+    button.setAttribute("disabled", true);
   }
   hash = hashCode(message);
   const seed = Math.abs(hash / (message.length + 1)) + 1;
@@ -396,28 +395,27 @@ function updateSettings(ev) {
 }
 
 function setupInput() {
-  document.addEventListener('DOMContentLoaded', function() {
-    const input = document.createElement('textarea');
-    input.setAttribute('maxlength', 250);
-    input.setAttribute('placeholer', 'Sende deine Nachricht als Boot');
+  document.addEventListener("DOMContentLoaded", function() {
+    const input = document.createElement("textarea");
+    input.setAttribute("maxlength", 250);
+    input.setAttribute("placeholer", "Sende deine Nachricht als Boot");
 
-    input.addEventListener('click', ev => {
+    input.addEventListener("click", ev => {
       input.focus();
     });
-    input.addEventListener('input', _.throttle(updateSettings, 2000));
-    const inputMount = document.querySelector('#input');
+    input.addEventListener("input", _.throttle(updateSettings, 2000));
+    const inputMount = document.querySelector("#input");
     inputMount.appendChild(input);
     input.focus();
 
-    button = document.createElement('button');
-    const icon = document.createElement('img');
-    const image = 
-    icon.src = iconPath;
-    button.setAttribute('disabled', true);
+    button = document.createElement("button");
+    const icon = document.createElement("img");
+    const image = (icon.src = iconPath);
+    button.setAttribute("disabled", true);
     button.appendChild(icon);
-    icon.setAttribute('width', '60');
-    icon.setAttribute('height', '60');
-    button.addEventListener('click', ev => {
+    icon.setAttribute("width", "60");
+    icon.setAttribute("height", "60");
+    button.addEventListener("click", ev => {
       const boatMeshClone = boatMesh.clone();
       boatMeshClone.position.y = 0;
       boatMeshClone.rotation.x = 0;
@@ -427,8 +425,8 @@ function setupInput() {
       const obj = exporter.parse(boatMeshClone);
 
       function onSuccess() {
-        input.value = '';
-        button.setAttribute('disabled', true);
+        input.value = "";
+        button.setAttribute("disabled", true);
         settings = settingsDefault;
       }
 
@@ -478,3 +476,5 @@ function setupInput() {
     inputMount.appendChild(button);
   });
 }
+
+
