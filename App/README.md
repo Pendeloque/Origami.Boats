@@ -1,7 +1,7 @@
 # Origami Boats
 ### Web App / Capacitor Android App + Node Server
 
-![Origami Boats running in the browser](img/webapp.png)
+![Origami Boats running in the browser](img/webapp.png =250x)
 
 The application consists of a web app (`src/client`) and a server application,
 that'll consume generated `.obj` files of the boats on the client/app side via
