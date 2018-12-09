@@ -3,8 +3,8 @@
 Interactive projection built for an illumination of the protestant church in
 Hockenheim on 08.12.2018 ([pendeloque.de](https://www.pendeloque.de)).
 
-![Projection screenshot A](./Touchdesigner/img/preview-00.jpg)
-![Projection screenshot B](./Touchdesigner/img/preview-01.jpg)
+![Projection screenshots](./img/screenshots.png)
+![Photo collage](./img/photos.png)
 
 
 ---
