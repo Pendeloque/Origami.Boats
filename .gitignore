@@ -1,0 +1,10 @@
+# Javascript/npm
+package-lock.json
+
+# Parcel
+dist/
+.cache/
+
+# Android
+.gradle/
+App/android/
